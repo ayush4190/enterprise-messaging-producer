@@ -7,5 +7,4 @@ cds:
 
   messaging.services:
     - name: "messaging"
-      kind: "file-based-messaging"
-      binding: "C:message.json"
+      kind: "enterprise-messaging"
