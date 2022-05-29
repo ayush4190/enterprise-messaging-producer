@@ -1,0 +1,102 @@
+{
+"metadata": {
+"cap_nb_version": "1.0.0",
+"cap_magic": "",
+"language_info": {
+"codemirror_mode": {
+"name": "ipython",
+"version": 3
+},
+"file_extension": ".py",
+"mimetype": "text/x-python",
+"name": "python",
+"nbconvert_exporter": "python",
+"pygments_lexer": "ipython3",
+"version": 3
+},
+"orig_nbformat": 2,
+"kernelspec": {
+"name": "nbvenv",
+"display_name": "nbvenv"
+}
+},
+"nbformat": 4,
+"nbformat_minor": 2,
+"cells": [
+{
+"cell_type": "markdown",
+"metadata": {},
+"source": [
+"<h1>Welcome to CAP Notebooks!&emsp;<img style=\"vertical-align:middle\" src=\"{{{cap}}}/docs/assets/logos/sap.svg\"
+    alt=\"drawing\" width=\"70\" /><img style=\"vertical-align:middle\" src=\"{{{cap}}}/docs/assets/logos/cap.svg\"
+    alt=\"drawing\" width=\"60\" /></h1>\n",
+"\n",
+"## What is a CAP Notebook?\n",
+"\n",
+"A CAP notebook is a [Jupyter Notebook](https://jupyter.org/) that serves as a guide on how to create, navigate and
+monitor CAP projects.\n",
+"\n",
+"With this, we want to encourage the CAP community to work with CAP in the same *explorative* manner that data
+scientists work with their data by:\n",
+"\n",
+"- Visually interacting with their code\n",
+"- Playing with REPL-type inputs (notebook input cells)\n",
+"- Storing persistent code (notebook output cells)\n",
+"\n",
+"The cell inputs/outputs are especially useful at later points in time when the project's details have long been
+forgotten. In addition, notebooks are a good way to share, compare and also reproduce projects.\n",
+"<br><br>\n",
+"\n",
+"## How do I run the CAP Notebook?\n",
+"\n",
+"The following symbols indicate the state of a cell:\n",
+"\n",
+"&emsp;&emsp;&emsp; `▶` : Executes the cell\n",
+"\n",
+"&emsp;&emsp;&emsp; `*` : Indicates that the cell is *running*\n",
+" \n",
+"&emsp;&emsp;&emsp; `■` : Stops cell execution\n",
+"\n",
+"When finished running, you will see the cell's output appear below the code cell. The blue bar on the left moves to
+keep track of where you are in the notebook. You can use `+` to add new cells anywhere in the notebook. See
+[Guide](https://code.visualstudio.com/docs/python/jupyter-support#_create-or-open-a-jupyter-notebook) for a more
+detailed description.\n",
+"<br><br>\n",
+"\n",
+"## How do I interact with the CAP Notebook?\n",
+"\n",
+"In notebooks, predefined [Magic commands](https://ipython.readthedocs.io/en/stable/interactive/magics.html) have been
+designed to succinctly solve various common problems. They all start with `%` or `%%` for line or cell magic
+commands.\n",
+"\n",
+"&emsp;&emsp;&emsp; `%quickref` : Provides a full list of magic functions available\n",
+"\n",
+"You will find these being used throughout the notebook.\n",
+"<br><br>\n",
+"\n",
+"## How do I get started?\n",
+"\n",
+"Start by executing the first cell, which registers some additional magic commands which make our notebook
+platform-independent (across Windows, Linux and Mac).\n",
+"\n",
+"After that, you're ready to start the CAP [Getting started in a
+Nutshell](https://cap.cloud.sap/docs/get-started/in-a-nutshell) tutorial. \n",
+"\n",
+"**```🡇 NOTE: This cell must be included and run at the start of any CAP Notebook! 🡇```**"
+]
+},
+{
+"cell_type": "code",
+"execution_count": null,
+"metadata": {
+"tags": []
+},
+"outputs": [],
+"source": [
+"import glob, json\n",
+"with open(glob.glob('./*.ipynb')[0], encoding='utf8') as json_file:\n",
+" exec(json.load(json_file)['metadata']['cap_magic'])"
+]
+}
+]
+}

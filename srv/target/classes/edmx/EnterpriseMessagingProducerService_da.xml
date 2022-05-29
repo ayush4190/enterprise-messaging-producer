@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+    <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="EnterpriseMessagingProducerService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityContainer Name="EntityContainer">
+        <EntitySet Name="Students" EntityType="EnterpriseMessagingProducerService.Students">
+          <NavigationPropertyBinding Path="texts" Target="Students_texts"/>
+          <NavigationPropertyBinding Path="localized" Target="Students_texts"/>
+        </EntitySet>
+        <EntitySet Name="Students_texts" EntityType="EnterpriseMessagingProducerService.Students_texts"/>
+      </EntityContainer>
+      <EntityType Name="Students">
+        <Key>
+          <PropertyRef Name="ID"/>
+        </Key>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="firstName" Type="Edm.String" MaxLength="100"/>
+        <Property Name="lastName" Type="Edm.String" MaxLength="100"/>
+        <Property Name="dateOfBirth" Type="Edm.Date"/>
+        <Property Name="placeOfBirth" Type="Edm.String" MaxLength="100"/>
+        <Property Name="currentClass" Type="Edm.String" MaxLength="10"/>
+        <NavigationProperty Name="texts" Type="Collection(EnterpriseMessagingProducerService.Students_texts)">
+          <OnDelete Action="Cascade"/>
+        </NavigationProperty>
+        <NavigationProperty Name="localized" Type="EnterpriseMessagingProducerService.Students_texts">
+          <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="Students_texts">
+        <Key>
+          <PropertyRef Name="locale"/>
+          <PropertyRef Name="ID"/>
+        </Key>
+        <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="firstName" Type="Edm.String" MaxLength="100"/>
+        <Property Name="lastName" Type="Edm.String" MaxLength="100"/>
+      </EntityType>
+      <Annotations Target="EnterpriseMessagingProducerService.Students/createdAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="Oprettet den"/>
+      </Annotations>
+      <Annotations Target="EnterpriseMessagingProducerService.Students/createdBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="Core.Immutable" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="Brugers entydige ID"/>
+        <Annotation Term="Common.Label" String="Oprettet af"/>
+      </Annotations>
+      <Annotations Target="EnterpriseMessagingProducerService.Students/modifiedAt">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Common.Label" String="Ændret den"/>
+      </Annotations>
+      <Annotations Target="EnterpriseMessagingProducerService.Students/modifiedBy">
+        <Annotation Term="UI.HiddenFilter" Bool="true"/>
+        <Annotation Term="Core.Computed" Bool="true"/>
+        <Annotation Term="Core.Description" String="Brugers entydige ID"/>
+        <Annotation Term="Common.Label" String="Ændret af"/>
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

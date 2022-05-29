@@ -1,0 +1,1 @@
+{"version":3,"file":"odata-batch-request-config.js","sourceRoot":"","sources":["../../../src/odata-v2/legacy-request-configs/odata-batch-request-config.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;AAAA,mDAA6D;AAE7D;IAAsC,oCAAuB;IAC3D;;;;;OAKG;IACH,0BAAY,kBAA0B,EAAE,OAAe;eACrD,kBAAM,kBAAkB,EAAE,OAAO,CAAC;IACpC,CAAC;IACH,uBAAC;AAAD,CAAC,AAVD,CAAsC,sCAAuB,GAU5D;AAVY,4CAAgB"}
