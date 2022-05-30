@@ -14,7 +14,7 @@ public class ConsumerHandler implements EventHandler{
 
 	private static final Logger logger = LoggerFactory.getLogger(ProducerHandler.class);
 
-	@On(service = "messaging", event = "default/sap.ic.agop.sb/-/StudentEnrolled")
+	@On(service = "messaging", event = "com/eventmesh/blog/StudentEnrolled")
 	public void listen(TopicMessageEventContext context) {
 		
 		logger.info("---------------------------Reading Payload Emitted by the Event----------------------------------------------------");

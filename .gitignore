@@ -39,3 +39,8 @@ package-lock.json
     # added by cds deploy
     default-env.json
     
+srv/.classpath
+srv/.project
+*.prefs
+*.properties
+*.lst

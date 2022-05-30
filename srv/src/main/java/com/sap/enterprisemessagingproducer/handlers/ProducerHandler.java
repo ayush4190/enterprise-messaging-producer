@@ -50,7 +50,7 @@ public class ProducerHandler implements EventHandler {
 		payload.put("data", jsonArray);
 
 		logger.info("Data Emitted to the topic  {}", payload.toJSONString());
-		messagingService.emit("default/sap.ic.agop.sb/-/StudentEnrolled", payload);
+		messagingService.emit("com/eventmesh/blog/StudentEnrolled", payload);
 		
 		messagingService.emit("dummyEventForDemo", payload);
 
