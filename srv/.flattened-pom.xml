@@ -36,6 +36,11 @@
       <artifactId>nimbus-jose-jwt</artifactId>
       <version>9.23</version>
     </dependency>
+    <dependency>
+      <groupId>com.sap.cds</groupId>
+      <artifactId>cds-feature-enterprise-messaging</artifactId>
+      <scope>runtime</scope>
+    </dependency>
   </dependencies>
   <build>
     <finalName>${project.artifactId}</finalName>

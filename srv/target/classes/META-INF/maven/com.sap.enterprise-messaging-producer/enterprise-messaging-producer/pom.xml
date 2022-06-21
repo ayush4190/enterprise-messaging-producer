@@ -46,12 +46,6 @@
     <artifactId>nimbus-jose-jwt</artifactId>
     <version>9.23</version>
 </dependency>
-<!-- SAP Event Mesh -->
-<dependency>
-	<groupId>com.sap.cds</groupId>
-	<artifactId>cds-feature-enterprise-messaging</artifactId>
-	<scope>runtime</scope>
-</dependency>
 
 	</dependencies>
 
