@@ -50,7 +50,7 @@ public class ProducerHandler implements EventHandler {
 		payload.put("data", jsonArray);
 
 		logger.info("Data Emitted to the topic  {}", payload.toJSONString());
-		messagingService.emit("com/eventmesh/blog/StudentEnrolled", payload);
+		messagingService.emit("StudentEnrolled", payload);
 
 	}
 

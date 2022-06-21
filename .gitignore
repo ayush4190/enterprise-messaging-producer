@@ -26,3 +26,11 @@ replay_pid*
 *.properties
 *.properties
 *.lst
+*.json
+srv/target/classes/edmx/csn.json
+*.xml
+*.xml
+*.xml
+srv/target/classes/edmx/EnterpriseMessagingProducerService.xml
+*.xml
+*.MF

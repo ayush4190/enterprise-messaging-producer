@@ -14,14 +14,14 @@ public class ConsumerHandler implements EventHandler{
 
 	private static final Logger logger = LoggerFactory.getLogger(ConsumerHandler.class);
 
-	@On(service = "messaging", event = "com/eventmesh/blog/StudentEnrolled")
+	@On(service = "messaging", event = "StudentEnrolled")
 	public void listen(TopicMessageEventContext context) {
 		
 		logger.info("---------------------------Reading Payload Emitted by the Event in Same CAP based Microservice----------------------------------------------------");
 		
         logger.info("checking if the message if read from SAP Event Mesh {}",context.getIsInbound().toString());
 		logger.info("reading event id{}",context.getMessageId());
-		logger.info("reading event data{}", context.getData());
+		logger.info("reading event data  {}", context.getData());
 	}
 
 }
