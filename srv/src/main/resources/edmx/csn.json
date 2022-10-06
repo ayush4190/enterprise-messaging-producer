@@ -78,6 +78,11 @@
           "@Common.Label": "{i18n>ChangedBy}",
           "@Core.Description": "{i18n>UserID.Description}"
         },
+        "studentId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
         "firstName": {
           "localized": true,
           "type": "cds.String",
@@ -99,6 +104,27 @@
           "type": "cds.String",
           "length": 10
         },
+        "teacher": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "sap.capire.enterpriseMessagingProducer.teacher",
+          "on": [
+            {
+              "ref": [
+                "teacher",
+                "studentId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "studentId"
+              ]
+            }
+          ]
+        },
         "texts": {
           "type": "cds.Composition",
           "cardinality": {
@@ -117,6 +143,19 @@
               "ref": [
                 "ID"
               ]
+            },
+            "and",
+            {
+              "ref": [
+                "texts",
+                "studentId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "studentId"
+              ]
             }
           ]
         },
@@ -134,6 +173,139 @@
             {
               "ref": [
                 "ID"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "localized",
+                "studentId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "studentId"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "localized",
+                "locale"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$user",
+                "locale"
+              ]
+            }
+          ]
+        }
+      },
+      "$localized": true
+    },
+    "sap.capire.enterpriseMessagingProducer.teacher": {
+      "kind": "entity",
+      "includes": [
+        "cuid"
+      ],
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "studentId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
+        "firstName": {
+          "localized": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "student": {
+          "type": "cds.Association",
+          "target": "sap.capire.enterpriseMessagingProducer.student",
+          "on": [
+            {
+              "ref": [
+                "student",
+                "studentId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "studentId"
+              ]
+            }
+          ]
+        },
+        "texts": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "sap.capire.enterpriseMessagingProducer.teacher.texts",
+          "on": [
+            {
+              "ref": [
+                "texts",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "ID"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "texts",
+                "studentId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "studentId"
+              ]
+            }
+          ]
+        },
+        "localized": {
+          "type": "cds.Association",
+          "target": "sap.capire.enterpriseMessagingProducer.teacher.texts",
+          "on": [
+            {
+              "ref": [
+                "localized",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "ID"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "localized",
+                "studentId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "studentId"
               ]
             },
             "and",
@@ -239,6 +411,11 @@
           "@Common.Label": "{i18n>ChangedBy}",
           "@Core.Description": "{i18n>UserID.Description}"
         },
+        "studentId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
         "firstName": {
           "localized": true,
           "type": "cds.String",
@@ -260,6 +437,27 @@
           "type": "cds.String",
           "length": 10
         },
+        "teacher": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "EnterpriseMessagingProducerService.teacher",
+          "on": [
+            {
+              "ref": [
+                "teacher",
+                "studentId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "studentId"
+              ]
+            }
+          ]
+        },
         "texts": {
           "type": "cds.Composition",
           "cardinality": {
@@ -278,6 +476,19 @@
               "ref": [
                 "ID"
               ]
+            },
+            "and",
+            {
+              "ref": [
+                "texts",
+                "studentId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "studentId"
+              ]
             }
           ]
         },
@@ -295,6 +506,19 @@
             {
               "ref": [
                 "ID"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "localized",
+                "studentId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "studentId"
               ]
             },
             "and",
@@ -797,12 +1021,45 @@
           "key": true,
           "type": "cds.UUID"
         },
+        "studentId": {
+          "@odata.containment.ignore": true,
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
         "firstName": {
           "localized": null,
           "type": "cds.String",
           "length": 100
         },
         "lastName": {
+          "localized": null,
+          "type": "cds.String",
+          "length": 100
+        }
+      }
+    },
+    "sap.capire.enterpriseMessagingProducer.teacher.texts": {
+      "kind": "entity",
+      "@odata.draft.enabled": false,
+      "elements": {
+        "locale": {
+          "key": true,
+          "type": "cds.String",
+          "length": 14
+        },
+        "ID": {
+          "@odata.containment.ignore": true,
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "studentId": {
+          "@odata.containment.ignore": true,
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
+        "firstName": {
           "localized": null,
           "type": "cds.String",
           "length": 100
@@ -908,6 +1165,131 @@
         }
       }
     },
+    "EnterpriseMessagingProducerService.teacher": {
+      "kind": "entity",
+      "@cds.autoexposed": true,
+      "projection": {
+        "from": {
+          "ref": [
+            "sap.capire.enterpriseMessagingProducer.teacher"
+          ]
+        }
+      },
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "studentId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
+        "firstName": {
+          "localized": true,
+          "type": "cds.String",
+          "length": 100
+        },
+        "student": {
+          "type": "cds.Association",
+          "target": "EnterpriseMessagingProducerService.Students",
+          "on": [
+            {
+              "ref": [
+                "student",
+                "studentId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "studentId"
+              ]
+            }
+          ]
+        },
+        "texts": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "EnterpriseMessagingProducerService.teacher.texts",
+          "on": [
+            {
+              "ref": [
+                "texts",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "ID"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "texts",
+                "studentId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "studentId"
+              ]
+            }
+          ]
+        },
+        "localized": {
+          "type": "cds.Association",
+          "target": "EnterpriseMessagingProducerService.teacher.texts",
+          "on": [
+            {
+              "ref": [
+                "localized",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "ID"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "localized",
+                "studentId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "studentId"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "localized",
+                "locale"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$user",
+                "locale"
+              ]
+            }
+          ]
+        }
+      },
+      "$localized": true
+    },
     "EnterpriseMessagingProducerService.Students.texts": {
       "kind": "entity",
       "@cds.autoexposed": true,
@@ -930,12 +1312,53 @@
           "key": true,
           "type": "cds.UUID"
         },
+        "studentId": {
+          "@odata.containment.ignore": true,
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
         "firstName": {
           "localized": null,
           "type": "cds.String",
           "length": 100
         },
         "lastName": {
+          "localized": null,
+          "type": "cds.String",
+          "length": 100
+        }
+      }
+    },
+    "EnterpriseMessagingProducerService.teacher.texts": {
+      "kind": "entity",
+      "@cds.autoexposed": true,
+      "@odata.draft.enabled": false,
+      "projection": {
+        "from": {
+          "ref": [
+            "sap.capire.enterpriseMessagingProducer.teacher.texts"
+          ]
+        }
+      },
+      "elements": {
+        "locale": {
+          "key": true,
+          "type": "cds.String",
+          "length": 14
+        },
+        "ID": {
+          "@odata.containment.ignore": true,
+          "key": true,
+          "type": "cds.UUID"
+        },
+        "studentId": {
+          "@odata.containment.ignore": true,
+          "key": true,
+          "type": "cds.String",
+          "length": 10
+        },
+        "firstName": {
           "localized": null,
           "type": "cds.String",
           "length": 100

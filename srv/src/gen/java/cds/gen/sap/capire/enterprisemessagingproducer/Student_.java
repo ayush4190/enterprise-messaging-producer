@@ -23,6 +23,8 @@ public interface Student_ extends StructuredType<Student_> {
 
   ElementRef<String> modifiedBy();
 
+  ElementRef<String> studentId();
+
   ElementRef<String> firstName();
 
   ElementRef<String> lastName();
@@ -32,6 +34,10 @@ public interface Student_ extends StructuredType<Student_> {
   ElementRef<String> placeOfBirth();
 
   ElementRef<String> currentClass();
+
+  Teacher_ teacher();
+
+  Teacher_ teacher(Function<Teacher_, CqnPredicate> filter);
 
   StudentTexts_ texts();
 

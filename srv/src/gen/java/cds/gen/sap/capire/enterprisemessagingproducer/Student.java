@@ -21,6 +21,8 @@ public interface Student extends CdsData {
 
   String MODIFIED_BY = "modifiedBy";
 
+  String STUDENT_ID = "studentId";
+
   String FIRST_NAME = "firstName";
 
   String LAST_NAME = "lastName";
@@ -30,6 +32,8 @@ public interface Student extends CdsData {
   String PLACE_OF_BIRTH = "placeOfBirth";
 
   String CURRENT_CLASS = "currentClass";
+
+  String TEACHER = "teacher";
 
   String TEXTS = "texts";
 
@@ -69,6 +73,10 @@ public interface Student extends CdsData {
    */
   void setModifiedBy(String modifiedBy);
 
+  String getStudentId();
+
+  void setStudentId(String studentId);
+
   String getFirstName();
 
   void setFirstName(String firstName);
@@ -88,6 +96,10 @@ public interface Student extends CdsData {
   String getCurrentClass();
 
   void setCurrentClass(String currentClass);
+
+  List<Teacher> getTeacher();
+
+  void setTeacher(List<? extends Map<String, ?>> teacher);
 
   List<StudentTexts> getTexts();
 

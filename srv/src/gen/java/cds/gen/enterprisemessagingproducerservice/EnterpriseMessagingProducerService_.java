@@ -11,4 +11,8 @@ public interface EnterpriseMessagingProducerService_ {
   Class<StudentsTexts_> STUDENTS_TEXTS = StudentsTexts_.class;
 
   Class<Students_> STUDENTS = Students_.class;
+
+  Class<Teacher_> TEACHER = Teacher_.class;
+
+  Class<TeacherTexts_> TEACHER_TEXTS = TeacherTexts_.class;
 }

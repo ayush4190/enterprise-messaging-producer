@@ -13,41 +13,86 @@
     <Schema Namespace="EnterpriseMessagingProducerService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityContainer Name="EntityContainer">
         <EntitySet Name="Students" EntityType="EnterpriseMessagingProducerService.Students">
+          <NavigationPropertyBinding Path="teacher" Target="teacher"/>
           <NavigationPropertyBinding Path="texts" Target="Students_texts"/>
           <NavigationPropertyBinding Path="localized" Target="Students_texts"/>
         </EntitySet>
+        <EntitySet Name="teacher" EntityType="EnterpriseMessagingProducerService.teacher">
+          <NavigationPropertyBinding Path="student" Target="Students"/>
+          <NavigationPropertyBinding Path="texts" Target="teacher_texts"/>
+          <NavigationPropertyBinding Path="localized" Target="teacher_texts"/>
+        </EntitySet>
         <EntitySet Name="Students_texts" EntityType="EnterpriseMessagingProducerService.Students_texts"/>
+        <EntitySet Name="teacher_texts" EntityType="EnterpriseMessagingProducerService.teacher_texts"/>
       </EntityContainer>
       <EntityType Name="Students">
         <Key>
           <PropertyRef Name="ID"/>
+          <PropertyRef Name="studentId"/>
         </Key>
         <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
         <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
         <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
         <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
         <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+        <Property Name="studentId" Type="Edm.String" MaxLength="10" Nullable="false"/>
         <Property Name="firstName" Type="Edm.String" MaxLength="100"/>
         <Property Name="lastName" Type="Edm.String" MaxLength="100"/>
         <Property Name="dateOfBirth" Type="Edm.Date"/>
         <Property Name="placeOfBirth" Type="Edm.String" MaxLength="100"/>
         <Property Name="currentClass" Type="Edm.String" MaxLength="10"/>
+        <NavigationProperty Name="teacher" Type="Collection(EnterpriseMessagingProducerService.teacher)">
+          <OnDelete Action="Cascade"/>
+        </NavigationProperty>
         <NavigationProperty Name="texts" Type="Collection(EnterpriseMessagingProducerService.Students_texts)">
           <OnDelete Action="Cascade"/>
         </NavigationProperty>
         <NavigationProperty Name="localized" Type="EnterpriseMessagingProducerService.Students_texts">
           <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+          <ReferentialConstraint Property="studentId" ReferencedProperty="studentId"/>
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="teacher">
+        <Key>
+          <PropertyRef Name="ID"/>
+          <PropertyRef Name="studentId"/>
+        </Key>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="studentId" Type="Edm.String" MaxLength="10" Nullable="false"/>
+        <Property Name="firstName" Type="Edm.String" MaxLength="100"/>
+        <NavigationProperty Name="student" Type="EnterpriseMessagingProducerService.Students">
+          <ReferentialConstraint Property="studentId" ReferencedProperty="studentId"/>
+        </NavigationProperty>
+        <NavigationProperty Name="texts" Type="Collection(EnterpriseMessagingProducerService.teacher_texts)">
+          <OnDelete Action="Cascade"/>
+        </NavigationProperty>
+        <NavigationProperty Name="localized" Type="EnterpriseMessagingProducerService.teacher_texts">
+          <ReferentialConstraint Property="ID" ReferencedProperty="ID"/>
+          <ReferentialConstraint Property="studentId" ReferencedProperty="studentId"/>
         </NavigationProperty>
       </EntityType>
       <EntityType Name="Students_texts">
         <Key>
           <PropertyRef Name="locale"/>
           <PropertyRef Name="ID"/>
+          <PropertyRef Name="studentId"/>
         </Key>
         <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
         <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="studentId" Type="Edm.String" MaxLength="10" Nullable="false"/>
         <Property Name="firstName" Type="Edm.String" MaxLength="100"/>
         <Property Name="lastName" Type="Edm.String" MaxLength="100"/>
+      </EntityType>
+      <EntityType Name="teacher_texts">
+        <Key>
+          <PropertyRef Name="locale"/>
+          <PropertyRef Name="ID"/>
+          <PropertyRef Name="studentId"/>
+        </Key>
+        <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+        <Property Name="ID" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="studentId" Type="Edm.String" MaxLength="10" Nullable="false"/>
+        <Property Name="firstName" Type="Edm.String" MaxLength="100"/>
       </EntityType>
       <Annotations Target="EnterpriseMessagingProducerService.Students/createdAt">
         <Annotation Term="UI.HiddenFilter" Bool="true"/>

@@ -5,9 +5,9 @@ import com.sap.cds.ql.ElementRef;
 import com.sap.cds.ql.StructuredType;
 import java.lang.String;
 
-@CdsName("EnterpriseMessagingProducerService.Students.texts")
-public interface StudentsTexts_ extends StructuredType<StudentsTexts_> {
-  String CDS_NAME = "EnterpriseMessagingProducerService.Students.texts";
+@CdsName("EnterpriseMessagingProducerService.teacher.texts")
+public interface TeacherTexts_ extends StructuredType<TeacherTexts_> {
+  String CDS_NAME = "EnterpriseMessagingProducerService.teacher.texts";
 
   ElementRef<String> locale();
 
@@ -16,6 +16,4 @@ public interface StudentsTexts_ extends StructuredType<StudentsTexts_> {
   ElementRef<String> studentId();
 
   ElementRef<String> firstName();
-
-  ElementRef<String> lastName();
 }

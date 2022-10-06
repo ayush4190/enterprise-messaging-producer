@@ -11,6 +11,8 @@ public interface StudentTexts extends CdsData {
 
   String ID = "ID";
 
+  String STUDENT_ID = "studentId";
+
   String FIRST_NAME = "firstName";
 
   String LAST_NAME = "lastName";
@@ -24,6 +26,10 @@ public interface StudentTexts extends CdsData {
 
   @CdsName(ID)
   void setId(String id);
+
+  String getStudentId();
+
+  void setStudentId(String studentId);
 
   String getFirstName();
 

@@ -1,12 +1,12 @@
-package cds.gen.enterprisemessagingproducerservice;
+package cds.gen.sap.capire.enterprisemessagingproducer;
 
 import com.sap.cds.CdsData;
 import com.sap.cds.Struct;
 import com.sap.cds.ql.CdsName;
 import java.lang.String;
 
-@CdsName("EnterpriseMessagingProducerService.Students.texts")
-public interface StudentsTexts extends CdsData {
+@CdsName("sap.capire.enterpriseMessagingProducer.teacher.texts")
+public interface TeacherTexts extends CdsData {
   String LOCALE = "locale";
 
   String ID = "ID";
@@ -14,8 +14,6 @@ public interface StudentsTexts extends CdsData {
   String STUDENT_ID = "studentId";
 
   String FIRST_NAME = "firstName";
-
-  String LAST_NAME = "lastName";
 
   String getLocale();
 
@@ -35,13 +33,9 @@ public interface StudentsTexts extends CdsData {
 
   void setFirstName(String firstName);
 
-  String getLastName();
+  TeacherTexts_ ref();
 
-  void setLastName(String lastName);
-
-  StudentsTexts_ ref();
-
-  static StudentsTexts create() {
-    return Struct.create(StudentsTexts.class);
+  static TeacherTexts create() {
+    return Struct.create(TeacherTexts.class);
   }
 }

@@ -8,3 +8,6 @@ cds:
   messaging.services:
     - name: "messaging"
       kind: "enterprise-messaging"
+      format: "cloudevents"
+      publishPrefix: '$namespace/'
+      

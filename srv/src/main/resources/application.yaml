@@ -9,3 +9,5 @@ cds:
     - name: "messaging"
       kind: "enterprise-messaging"
       format: "cloudevents"
+      publishPrefix: '$namespace/'
+      
