@@ -14,7 +14,7 @@ public class ConsumerHandler implements EventHandler{
 
 	private static final Logger logger = LoggerFactory.getLogger(ConsumerHandler.class);
 
-	@On(service = "messaging", event = "StudentEnrolled")
+	@On(service = "messaging", event = "/sap/eee/iwxbe/testproducer/v1/Event/Test")
 	public void listen(TopicMessageEventContext context) {
 		
 		logger.info("---------------------------Reading Payload Emitted by the Event in Same CAP based Microservice----------------------------------------------------");
