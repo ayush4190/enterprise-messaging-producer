@@ -2,76 +2,7 @@
     "VCAP_SERVICES" : {
         "enterprise-messaging": [{
             "label": "enterprise-messaging",
-            "credentials": {
-                "uaa": {
-                    "credential-type": "binding-secret",
-                    "clientid": "sb-default-0a352423-9bf6-47f9-8398-980017f6c11f-clone!b139563|xbem-service-broker-!b2436",
-                    "clientsecret": "f983dffc-15c7-40a8-a24a-a11fa9bc25eb$gxWG-nzyMwLeHiXNy8WvK5PvNWUE6GGUqSvNuRMVlUs=",
-                    "xsappname": "default-0a352423-9bf6-47f9-8398-980017f6c11f-clone!b139563|xbem-service-broker-!b2436",
-                    "url": "https://fp-subs-2022-test.authentication.eu10.hana.ondemand.com"
-                },
-                "xsappname": "default-0a352423-9bf6-47f9-8398-980017f6c11f-clone!b139563|xbem-service-broker-!b2436",
-                "management": [
-                    {
-                        "oa2": {
-                            "clientid": "sb-default-0a352423-9bf6-47f9-8398-980017f6c11f-clone!b139563|xbem-service-broker-!b2436",
-                            "clientsecret": "f983dffc-15c7-40a8-a24a-a11fa9bc25eb$gxWG-nzyMwLeHiXNy8WvK5PvNWUE6GGUqSvNuRMVlUs=",
-                            "tokenendpoint": "https://fp-subs-2022-test.authentication.eu10.hana.ondemand.com/oauth/token",
-                            "granttype": "client_credentials"
-                        },
-                        "uri": "https://enterprise-messaging-hub-backend.cfapps.eu10.hana.ondemand.com"
-                    }
-                ],
-                "namespace": "com/sap/subs",
-                "serviceinstanceid": "0a352423-9bf6-47f9-8398-980017f6c11f",
-                "messaging": [
-                    {
-                        "oa2": {
-                            "clientid": "sb-default-0a352423-9bf6-47f9-8398-980017f6c11f-clone!b139563|xbem-service-broker-!b2436",
-                            "clientsecret": "f983dffc-15c7-40a8-a24a-a11fa9bc25eb$gxWG-nzyMwLeHiXNy8WvK5PvNWUE6GGUqSvNuRMVlUs=",
-                            "tokenendpoint": "https://fp-subs-2022-test.authentication.eu10.hana.ondemand.com/oauth/token",
-                            "granttype": "client_credentials"
-                        },
-                        "protocol": [
-                            "amqp10ws"
-                        ],
-                        "broker": {
-                            "type": "sapmgw"
-                        },
-                        "uri": "wss://enterprise-messaging-messaging-gateway.cfapps.eu10.hana.ondemand.com/protocols/amqp10ws"
-                    },
-                    {
-                        "oa2": {
-                            "clientid": "sb-default-0a352423-9bf6-47f9-8398-980017f6c11f-clone!b139563|xbem-service-broker-!b2436",
-                            "clientsecret": "f983dffc-15c7-40a8-a24a-a11fa9bc25eb$gxWG-nzyMwLeHiXNy8WvK5PvNWUE6GGUqSvNuRMVlUs=",
-                            "tokenendpoint": "https://fp-subs-2022-test.authentication.eu10.hana.ondemand.com/oauth/token",
-                            "granttype": "client_credentials"
-                        },
-                        "protocol": [
-                            "mqtt311ws"
-                        ],
-                        "broker": {
-                            "type": "sapmgw"
-                        },
-                        "uri": "wss://enterprise-messaging-messaging-gateway.cfapps.eu10.hana.ondemand.com/protocols/mqtt311ws"
-                    },
-                    {
-                        "oa2": {
-                            "clientid": "sb-default-0a352423-9bf6-47f9-8398-980017f6c11f-clone!b139563|xbem-service-broker-!b2436",
-                            "clientsecret": "f983dffc-15c7-40a8-a24a-a11fa9bc25eb$gxWG-nzyMwLeHiXNy8WvK5PvNWUE6GGUqSvNuRMVlUs=",
-                            "tokenendpoint": "https://fp-subs-2022-test.authentication.eu10.hana.ondemand.com/oauth/token",
-                            "granttype": "client_credentials"
-                        },
-                        "protocol": [
-                            "httprest"
-                        ],
-                        "broker": {
-                            "type": "saprestmgw"
-                        },
-                        "uri": "https://enterprise-messaging-pubsub.cfapps.eu10.hana.ondemand.com"
-                    }
-                ]
-            }
+            "credentials": {}
             }]
   }
 }

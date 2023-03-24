@@ -9,5 +9,5 @@ cds:
     - name: "messaging"
       kind: "enterprise-messaging"
       format: "cloudevents"
-      publishPrefix: '$namespace/ce'
-      subscribePrefix: '$namespace/ce'
+      publishPrefix: '$namespace/ce/'
+      subscribePrefix: '$namespace/ce/'
